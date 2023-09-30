@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './frontend/navbar/navbar';
 import Forma from './frontend/form/form';
+import Faq from './frontend/faq/faq';
 
 function App() {
-  // State para mostrar u ocultar el texto
   const [showHolyLabel, setShowHolyLabel] = useState(true);
 
-  // Efecto para manejar el scroll
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -17,7 +16,6 @@ function App() {
       }
     };
 
-    // Agregar el evento de scroll y limpiarlo cuando se desmonte el componente
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -25,25 +23,42 @@ function App() {
     };
   }, []);
 
+  const tituloStyle = {
+    color: '#D4AF37',
+    textAlign: 'center',
+    fontFamily: 'Montserrat',
+    fontSize: '44px',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '56px',
+    letterSpacing: '-0.44px',
+    margin: '60px 0',
+  };
+
   return (
     <div className="App">
-      {/* Encabezado */}
       <header className="App-header">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
-        {/* Texto grande que se muestra u oculta */}
         <div className={`large-text ${showHolyLabel ? 'show' : ''}`}>
           HolyLabel
         </div>
-
-        {/* Barra de navegación */}
         <Navbar />
       </header>
 
-      {/* Contenido principal */}
       <main>
-        {/* Aquí pasamos la URL de la imagen como una prop al componente Forma */}
-        <Forma backgroundImage="src/frontend/assets/image/logo512.png" /> {/* Reemplaza <path-to-image> con la ruta correcta de tu imagen */}
+        <Forma backgroundImage="/images/person.png" texto="¿Quiénes somos?" />
+
+        <div style={tituloStyle}>FAQ</div>
+
+        <Faq
+          pregunta="¿Cómo funciona la aplicación?"
+          respuesta="La aplicación funciona de la siguiente manera: "
+        />
+        <Faq
+          pregunta="¿Otra pregunta frecuente?"
+          respuesta="Respuesta."
+        />
       </main>
     </div>
   );
