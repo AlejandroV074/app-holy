@@ -12,32 +12,33 @@ function Faq({ pregunta, respuesta }) {
         fontFamily: 'Montserrat',
         fontSize: '24px',
         fontStyle: 'normal',
-        fontWeight: 400,
+        fontWeight: 500,
         lineHeight: 'normal',
-        margin: '50px 0',
-        padding: '30px', // Espacio interno del cuadro de pregunta
+        margin: '30px 0', 
+        padding: '30px', 
         borderRadius: '8px',
         background: '#FFF',
-        boxShadow: expandir ? '0px 4px 4px 0px rgba(0, 0, 0, 0.25)' : '1px 5px 4px 0px #D4AF37',
+        boxShadow: '1px 5px 4px 0px #D4AF37',
         transition: 'box-shadow 0.3s ease',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center', // Centrar preguntas en el cuadro
+        alignItems: 'center',
         cursor: 'pointer',
     };
 
-    const preguntaStyle = {
-        marginBottom: '10px', // Espacio entre pregunta y respuesta
+    const respuestaStyle = {
+        padding: '20px',
+        borderRadius: '8px',
     };
 
     return (
         <div style={faqStyle} onClick={toggleExpandir}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                <span style={preguntaStyle}>{pregunta}</span>
+                <span>{pregunta}</span>
                 <span style={{ fontSize: '20px', marginLeft: '8px' }}>{expandir ? '▼' : '▶'}</span>
             </div>
             {expandir && (
-                <div style={{ padding: '20px', borderRadius: '8px', background: '#FFF', boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)' }}>
+                <div style={respuestaStyle}>
                     {respuesta}
                 </div>
             )}
