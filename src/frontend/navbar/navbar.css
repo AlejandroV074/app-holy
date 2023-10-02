@@ -1,11 +1,11 @@
-/* navbar.css */
 
 nav {
     position: fixed;
-    top: 0;
+    top: 2%;
     width: 100%;
     color: white;
-    z-index: 100; 
+    z-index: 100;
+    right: 1%;
 }
 
 ul {
@@ -13,6 +13,7 @@ ul {
     padding: 0;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 li {
@@ -26,7 +27,6 @@ a {
     transition: background-color 0.3s;
 }
 
-/* Estilos específicos para el elemento "HolyLabel" */
 .special-item a {
     color: #D4AF37;
     font-size: 32px;
@@ -36,7 +36,6 @@ a {
     letter-spacing: -0.32px;
 }
 
-/* Estilos específicos para el enlace "Escanear QR" */
 .scan-qr {
     width: 125px;
     height: 50px;
@@ -50,4 +49,39 @@ a {
 
 .scan-qr:hover {
     background-color: #fcc100;
+}
+
+.logo-label-container {
+    display: flex;
+    align-items: center; 
+}
+
+.logo {
+    width: 150px; 
+    height: auto; 
+    margin-right: 10px; 
+}
+
+@media (max-width: 768px) {
+    ul {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    li {
+        margin: 10px 0;
+    }
+
+    a {
+        padding: 10px 20px; 
+    }
+
+    .special-item a {
+        font-size: 24px; 
+    }
+
+    .scan-qr {
+        width: 100%; 
+        text-align: center; 
+    }
 }
