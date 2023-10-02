@@ -1,4 +1,4 @@
-
+/* Estilos para resoluciones mayores a 768px */
 nav {
     position: fixed;
     top: 2%;
@@ -53,35 +53,95 @@ a {
 
 .logo-label-container {
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .logo {
-    width: 150px; 
-    height: auto; 
-    margin-right: 10px; 
+    width: 150px;
+    height: auto;
+    margin-right: -20px;
+    margin-top: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
+    nav {
+        background-color: #333; 
+    }
+
     ul {
-        flex-direction: column; 
-        align-items: flex-start; 
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #333; 
+        z-index: 100;
+        text-align: center;
+    }
+
+    ul.active {
+        display: flex;
     }
 
     li {
-        margin: 10px 0;
+        margin: 20px 0;
     }
 
     a {
-        padding: 10px 20px; 
+        padding: 10px 10px;
+        color: white; 
     }
 
     .special-item a {
-        font-size: 24px; 
+        font-size: 24px;
+        margin-left: -8%;
+        margin-bottom: -10%;
     }
 
     .scan-qr {
-        width: 100%; 
-        text-align: center; 
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-btn {
+        display: block;
+        position: fixed;
+        top: 2%;
+        right: 1%;
+        z-index: 101;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.808);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-btn.active .bar {
+        background-color: #D4AF37;
+    }
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color:  #D4AF37;
+        margin: 4px 30px; 
+        transition: 0.4s;
     }
 }
