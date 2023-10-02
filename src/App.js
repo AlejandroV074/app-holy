@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './frontend/navbar/navbar';
 import Forma from './frontend/form/form';
 import Faq from './frontend/faq/faq';
+import Footer from './frontend/footer/footer';
 
 function App() {
   const [showHolyLabel, setShowHolyLabel] = useState(true);
@@ -47,6 +48,7 @@ function App() {
           pregunta="¿Cómo funciona la aplicación?"
           respuesta="La aplicación funciona de la siguiente manera: "
         />
+        <Footer />
       </main>
     </div>
   );
