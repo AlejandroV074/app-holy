@@ -12,7 +12,7 @@ function Faq({ pregunta, respuesta }) {
         <div className={`faq-container ${expandir ? 'expanded' : ''}`} onClick={toggleExpandir}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                 <span>{pregunta}</span>
-                <span className="arrow-icon">{expandir ? '▼' : '▶'}</span>
+                <span className="arrow-icon">{expandir ? '➤' : '➤'}</span>
             </div>
             {expandir && (
                 <div>
