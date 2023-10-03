@@ -2,32 +2,61 @@ svg {
     width: 100%;
     height: auto;
     flex-shrink: 0;
-    fill: #333;
     filter: drop-shadow(0px 4px 4px #D4AF37) drop-shadow(0px 4px 4px #D4AF37) drop-shadow(0px 4px 4px #D4AF37);
 }
 
-text {
-    fill: #D4AF37;
-    font-family: 'Montserrat', sans-serif;
+.titulo {
+    fill: #D4AF37; 
+    font-family: 'Montserrat'; 
     font-size: 4rem;
+    font-style: normal; 
+    font-weight: 700; 
+    line-height: 1.2; 
+    letter-spacing: -0.44px; 
+}
+
+.fonttext {
+    position: absolute;
+    fill: #ffffff;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.44px;
+    top: 50%;
+    left: 500px;
+    width: 650px;
+    transform: translateY(-50%);
+}
+
+.father{
+    position: relative;
 }
 
 image {
     max-width: 100%;
+    
 }
 
 @media (max-width: 768px) {
     text {
-        font-size: 4rem; 
+        font-size: 4rem;
     }
 
     svg {
-        width: 108%; 
+        width: 108%;
         height: 600px;
         margin: -10%;
+    }
+
+    .fonttext {
+        width: 108%;
+        font-size: 4rem;
+    }
+
+    .fonttext {
+        font-size: 0.6rem;
+        left: 34%;
+        width: 57%;
     }
 }
