@@ -8,27 +8,27 @@ const Footer = () => {
                 <img src="/images/holy.png" alt="Logo" className="logofooter" />
                 <h1>HolyLabel</h1>
             </div>
-            <div className="vertical contact-section">
+            <div className="vertical-list contact-section">
                 <h1>MENÚ</h1>
-                <ul>
-                    <li>Inicio</li>
-                    <li>¿Quienes somos?</li>
-                    <li>FAQ</li>
-                    <li>Escanear QR</li>
-                </ul>
+
+                <a>Inicio</a>
+                <a>¿Quienes somos?</a>
+                <a>FAQ</a>
+                <a>Escanear QR</a>
+
             </div>
             <div className="vertical contactofooter">
                 <h1>DATOS DE CONTACTO</h1>
                 <p>Teléfono: </p>
                 <p>Email: </p>
             </div>
-            <div className="vertical responsive-section">
+            <div className="vertical-red responsive-section">
                 <h1>REDES SOCIALES</h1>
-                <ul>
-                    <li>Facebook</li>
-                    <li>Twitter</li>
-                    <li>Instagram</li>
-                </ul>
+                
+                    <a>Facebook</a>
+                    <a>Twitter</a>
+                    <a>Instagram</a>
+                
             </div>
         </footer>
     );

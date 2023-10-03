@@ -4,7 +4,7 @@ nav {
     width: 100%;
     z-index: 100;
     right: 0%;
-background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6278886554621849) 41%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6278886554621849) 41%, rgba(255,255,255,0) 100%);
 }
 
 ul {
@@ -132,6 +132,7 @@ a {
 
     .menu.active {
         display: flex;
+        margin-top: 0%;
     }
 
     .menu-btn.active .bar {

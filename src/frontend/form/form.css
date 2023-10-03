@@ -38,6 +38,26 @@ image {
     
 }
 
+@media (max-width: 1080px) {
+
+    svg {
+        width: 108%;
+        height: 600px;
+        margin: -10%;
+    }
+
+    .fonttext {
+        width: 108%;
+        font-size: 4rem;
+    }
+
+    .fonttext {
+        font-size: 1.3rem;
+        left: 34%;
+        width: 57%;
+    }
+}
+
 @media (max-width: 768px) {
     text {
         font-size: 4rem;
@@ -55,8 +75,9 @@ image {
     }
 
     .fonttext {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         left: 34%;
         width: 57%;
     }
 }
+
