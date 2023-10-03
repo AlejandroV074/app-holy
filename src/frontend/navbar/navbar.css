@@ -1,15 +1,15 @@
-/* Estilos para resoluciones mayores a 768px */
 nav {
     position: fixed;
-    top: 2%;
+    top: 0%;
     width: 100%;
-    color: white;
     z-index: 100;
-    right: 1%;
+    right: 0%;
+background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6278886554621849) 41%, rgba(255,255,255,0) 100%);
 }
 
 ul {
     list-style: none;
+    height: 100px;
     padding: 0;
     display: flex;
     justify-content: space-around;
@@ -57,10 +57,11 @@ a {
 }
 
 .logo {
-    width: 150px;
+    position: relative;
+    width: 99px;
     height: auto;
-    margin-right: -20px;
-    margin-top: 20px;
+    margin-right: 6px;
+    margin-top: 3px;
 }
 
 @media (max-width: 1080px) {
