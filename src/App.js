@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Navbar from './frontend/navbar/navbar';
-import Forma from './frontend/form/form';
-import Faq from './frontend/faq/faq';
-import Footer from './frontend/footer/footer';
+import Navbar from './frontend/components/navbar/navbar';
+import Forma from './frontend/components/form/form';
+import Faq from './frontend/components/faq/faq';
+import Footer from './frontend/components/footer/footer';
 
 function App() {
   const [showHolyLabel, setShowHolyLabel] = useState(true);
