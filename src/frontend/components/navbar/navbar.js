@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
+import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
 
 function Navbar() {
     const [showHolyLabel, setShowHolyLabel] = useState(false);
@@ -35,16 +36,17 @@ function Navbar() {
             <ul className={`menu ${showMenu ? 'active' : ''}`}>
                 {showHolyLabel && (
                     <li className="special-item">
-                        <a href="/" className="logo-label-container">
+                        <Link to="/" className="logo-label-container">
                             <img src="/images/holy.png" alt="Logo de HolyLabel" className="logo" />
                             <span>HolyLabel</span>
-                        </a>
+                        </Link>
                     </li>
                 )}
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/">¿Quiénes somos?</a></li>
-                <li><a href="/">FAQ</a></li>
-                <li><a href="/" className="scan-qr">Escanear QR</a></li>
+                <li><Link to="/">Inicio</Link></li>
+                <li><Link to="/">¿Quiénes somos?</Link></li>
+                <li><Link to="/">FAQ</Link></li>
+                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/" className="scan-qr">Escanear QR</Link></li>
             </ul>
         </nav>
     );
