@@ -21,6 +21,7 @@ footer {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    margin-left: 10%;
 }
 
 .logo-section h1 {
