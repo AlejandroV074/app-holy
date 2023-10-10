@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../../../frontend/components/navbar/navbar';
 import './login.css';
+import Alert from 'react-bootstrap/Alert'; 
 
 class Login extends Component {
     constructor() {
@@ -22,6 +23,9 @@ class Login extends Component {
         e.preventDefault();
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Access-Control-Allow-Origin", "*");
+        myHeaders.append("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS");
+        myHeaders.append("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
 
         var raw = JSON.stringify({
             "user": this.state.username,
@@ -39,7 +43,7 @@ class Login extends Component {
         fetch("https://holylabelapi.azurewebsites.net/api-token-auth/", requestOptions)
             .then(response => response.text())
             .then(result => {
-                if (result === 'Login successful') { 
+                if (result === 'Login successful') {
                     this.setState({ loginSuccessful: true });
                 }
             })
@@ -47,13 +51,6 @@ class Login extends Component {
     }
 
     render() {
-        const inputStyle = {
-            borderRadius: '28px',
-            background: '#646464',
-            boxShadow: '0 0 10px #D4AF37',
-            color: '#D4AF37'
-        };
-
         return (
             <div className="container mt-5">
                 <Navbar />
@@ -92,8 +89,9 @@ class Login extends Component {
                                                 value={this.state.type_user}
                                                 onChange={this.handleInputChange}
                                                 className="form-select input-style"
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>Tipo de Usuario</option>
+                                                <option value="" disabled>Tipo de Usuario</option>
                                                 <option value="Decanter">Licoreras</option>
                                                 <option value="Factory">Fabricantes</option>
                                                 <option value="Distributor">Distribuidoras</option>
@@ -103,9 +101,9 @@ class Login extends Component {
                                     </div>
                                 </form>
                                 {this.state.loginSuccessful && (
-                                    <div className="alert alert-success mt-3">
+                                    <Alert variant="success" className="mt-3">
                                         Logeo exitoso
-                                    </div>
+                                    </Alert>
                                 )}
                             </div>
                         </div>
