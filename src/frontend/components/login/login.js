@@ -39,8 +39,7 @@ class Login extends Component {
         fetch("https://holylabelapi.azurewebsites.net/api-token-auth/", requestOptions)
             .then(response => response.text())
             .then(result => {
-                // Verificar si el inicio de sesión fue exitoso aquí
-                if (result === 'Login successful') { // Cambia esto según tu lógica de respuesta
+                if (result === 'Login successful') { 
                     this.setState({ loginSuccessful: true });
                 }
             })
@@ -100,7 +99,6 @@ class Login extends Component {
                                                 <option value="Distributor">Distribuidoras</option>
                                             </select>
                                         </div>
-                                        <a className='f-password'>Olvidé mi contraseña</a>
                                         <button type="submit" className="btn btn-primary">Iniciar Sesión</button>
                                     </div>
                                 </form>
