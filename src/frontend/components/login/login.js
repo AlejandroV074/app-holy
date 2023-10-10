@@ -9,6 +9,7 @@ class Login extends Component {
             username: '',
             password: '',
             type_user: '',
+            loginSuccessful: false,
         };
     }
 
@@ -37,7 +38,12 @@ class Login extends Component {
 
         fetch("https://holylabelapi.azurewebsites.net/api-token-auth/", requestOptions)
             .then(response => response.text())
-            .then(result => console.log(result))
+            .then(result => {
+                // Verificar si el inicio de sesión fue exitoso aquí
+                if (result === 'Login successful') { // Cambia esto según tu lógica de respuesta
+                    this.setState({ loginSuccessful: true });
+                }
+            })
             .catch(error => console.log('error', error));
     }
 
@@ -98,6 +104,11 @@ class Login extends Component {
                                         <button type="submit" className="btn btn-primary">Iniciar Sesión</button>
                                     </div>
                                 </form>
+                                {this.state.loginSuccessful && (
+                                    <div className="alert alert-success mt-3">
+                                        Logeo exitoso
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
