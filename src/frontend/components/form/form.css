@@ -40,10 +40,10 @@
     max-width: 100%;
     filter: drop-shadow(40px 5px 10px rgba(0, 0, 0, 0.3));
     position: absolute;
-    top: 1%;
-    left: 5%;
-    width: 480px;
-    height: 770px;
+    top: 18%;
+    left: 4%;
+    width: 497px;
+    height: 529px;
 }
 
 @media (max-width: 1080px) {
