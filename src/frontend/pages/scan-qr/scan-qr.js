@@ -12,7 +12,7 @@ function Qr() {
 
                 <Navbar />
                 <div className='scan-codigo'>
-                    <h1>Escanear qr</h1>
+                    <h1 style={{color: '#D4AF37'}}>Escanear qr</h1>
                     <QRScanner />
                 </div>
             </header>
