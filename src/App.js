@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './frontend/pages/home/home';
-import Login from './frontend/components/login/login';
+import Login from './frontend/pages/login/login';
+import Buscar from './frontend/pages/crear-botellas/buscar'
+import Crear from './frontend/pages/crear-botellas/crear-botella'
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/buscar" element={<Buscar />} />
+          <Route path="/crear-botellas" element={<Crear />} />
         </Routes>
       </Router>
     </div>
