@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
-import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
+import { Link } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
+
 
 function Navbar() {
     const [showHolyLabel, setShowHolyLabel] = useState(false);
@@ -42,9 +44,9 @@ function Navbar() {
                         </Link>
                     </li>
                 )}
-                <li><Link to="/">Inicio</Link></li>
-                <li><Link to="/">¿Quiénes somos?</Link></li>
-                <li><Link to="/">FAQ</Link></li>
+                <li><Link to="/" onClick={() => { scroll.scrollTo(5); }}>Inicio</Link></li>
+                <li><Link to="/" onClick={() => { scroll.scrollTo(1000); }}> ¿Quiénes somos?</Link></li>
+                <li><Link to="/" onClick={() => { scroll.scrollTo(2000); }}> FAQ </Link></li>
                 <li><Link to="/login">Login</Link></li>
                 <li><Link to="/" className="scan-qr">Escanear QR</Link></li>
             </ul>
