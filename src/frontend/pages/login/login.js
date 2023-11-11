@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter, Navigate } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import "./login.css";
 import { toast, ToastContainer } from "react-toastify";
@@ -48,22 +49,33 @@ class Login extends Component {
             redirect: "follow",
         };
 
-        fetch("https://holylabelapi.azurewebsites.net/api-token-auth/", requestOptions)
+        fetch(
+            "https://holylabelapi.azurewebsites.net/api-token-auth/",
+            requestOptions
+        )
             .then((response) => response.text())
             .then((result) => {
-                if (result === "Login successful") {
-                    this.setState({ loginSuccessful: true });
-                    toast.success("Logeo exitoso");
-                    console.log("Inicio de sesión exitoso");
-                } else {
+                try {
+                    const respuesta = JSON.parse(result);
+                    if (respuesta?.token) {
+                        this.setState({ loginSuccessful: true });
+                    } else {
+                        toast.error("Usuario inválido");
+                        console.log("Usuario inválido");
+                    }
+                } catch (error) {
                     toast.error("Usuario inválido");
                     console.log("Usuario inválido");
                 }
             })
+
             .catch((error) => console.log("error", error));
     };
 
     render() {
+        if (this.state.loginSuccessful) {
+            return <Navigate to="/buscar" />;
+        }
         return (
             <div className="">
                 <Navbar />
