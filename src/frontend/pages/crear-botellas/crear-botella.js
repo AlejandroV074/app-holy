@@ -1,41 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/navbar";
 import "./style.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Crear() {
     const [nombre, setNombre] = useState("");
-    const [marca, setMarca] = useState("");
+    const [marcas, setMarcas] = useState([]);
+    const [marcaSeleccionada, setMarcaSeleccionada] = useState("");
     const [volumen, setVolumen] = useState("");
     const [unidad, setUnidad] = useState("ml");
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        fetch("https://holylabelapi.azurewebsites.net/marca/")
+            .then((response) => response.json())
+            .then((data) => setMarcas(data))
+            .catch((error) =>
+                console.error("Error al obtener las marcas:", error)
+            );
+    }, []);
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        guardarHolyLabel(nombre, marca, parseInt(volumen), unidad);
-    };
 
-    const guardarHolyLabel = async (nombre, marca, volumen, unidad) => {
         try {
-            const response = await fetch("/api/holyLabel", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    nombre,
-                    marca,
-                    volumen,
-                    unidad,
-                }),
-            });
+            const marcaEncontrada = marcas.find(marca => marca.name === marcaSeleccionada);
 
-            if (!response.ok) {
-                throw new Error("Something went wrong");
+            if (!marcaEncontrada) {
+                console.error("Error: No se encontró la marca correspondiente al nombre seleccionado.");
+                toast.error("Error inesperado. Por favor, intenta nuevamente más tarde.");
+                return;
             }
 
-            const data = await response.json();
-            console.log("HolyLabel saved successfully", data);
+            const response = await fetch(
+                "https://holylabelapi.azurewebsites.net/presentacion/",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name: nombre,
+                        volume: volumen,
+                        unit: unidad,
+                        brand: marcaEncontrada.id_brand,
+                    }),
+                }
+            );
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log(result);
+                toast.success("Guardado exitosamente");
+            } else {
+                toast.error(
+                    "Error al guardar. Verifica los datos e intenta nuevamente."
+                );
+                console.log("Error al guardar");
+            }
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error inesperado", error);
+            toast.error(
+                "Error inesperado. Por favor, intenta nuevamente más tarde."
+            );
         }
     };
 
@@ -63,7 +91,7 @@ function Crear() {
                     <label>
                         <input
                             style={{ marginTop: "-2%", height: "60px" }}
-                            class="buscar-pres"
+                            className="buscar-pres"
                             placeholder="Nombre"
                             type="text"
                             value={nombre}
@@ -71,19 +99,24 @@ function Crear() {
                         />
                     </label>
                     <label>
-                        <input
-                            style={{ marginTop: "5%", height: "60px" }}
-                            class="buscar-pres"
-                            placeholder="Marca"
-                            type="text"
-                            value={marca}
-                            onChange={(e) => setMarca(e.target.value)}
-                        />
+                        <select
+                            style={{ marginTop: "5%", height: "80px", width: "28%" }}
+                            className="buscar-pres"
+                            value={marcaSeleccionada}
+                            onChange={(e) => setMarcaSeleccionada(e.target.value)}
+                        >
+                            <option value="">Selecciona una marca</option>
+                            {marcas.map((marca) => (
+                                <option key={marca.id_brand} value={marca.name} style={{ borderRadius: "110px" }}>
+                                    {marca.name}
+                                </option>
+                            ))}
+                        </select>
                     </label>
-                    <div class="container">
-                        <div class="input-container">
-                            <div class="volumen">
-                                <label for="volumen"></label>
+                    <div className="container">
+                        <div className="input-container">
+                            <div className="volumen">
+                                <label htmlFor="volumen"></label>
                                 <input
                                     type="number"
                                     id="volumen"
@@ -94,22 +127,37 @@ function Crear() {
                                     required
                                 />
                             </div>
-                            <div class="unidad">
-                                <label for="unidad"></label>
-                                <select id="unidad" name="unidad">
+                            <div className="unidad">
+                                <label htmlFor="unidad"></label>
+                                <select
+                                    id="unidad"
+                                    name="unidad"
+                                    onChange={(e) => setUnidad(e.target.value)}
+                                >
                                     <option value="" disabled selected>
                                         Unidad
                                     </option>
-                                    <option value="ml">ml</option>
-                                    <option value="L">L</option>
-                                    onChange={(e) => setUnidad(e.target.value)}
+                                    <option value="1">ml</option>
+                                    <option value="2">L</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <button className="btn-primary" style={{width: '177%', display: 'block', marginTop: '-247%', marginLeft: '-24%'}} type="submit">Guardar</button>
+                    <button
+                        className="btn-primary"
+                        style={{
+                            width: "177%",
+                            display: "block",
+                            marginTop: "-247%",
+                            marginLeft: "-24%",
+                        }}
+                        type="submit"
+                    >
+                        Guardar
+                    </button>
                 </form>
             </main>
+            <ToastContainer />
         </div>
     );
 }
