@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import "./login.css";
 import { toast, ToastContainer } from "react-toastify";
@@ -59,6 +59,7 @@ class Login extends Component {
                     const respuesta = JSON.parse(result);
                     if (respuesta?.token) {
                         this.setState({ loginSuccessful: true });
+                        console.log("Usuario valido");
                     } else {
                         toast.error("Usuario inválido");
                         console.log("Usuario inválido");
