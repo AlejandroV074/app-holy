@@ -31,8 +31,8 @@ function Presentation() {
     };
 
     const handleResultClick = (presentation) => {
-        navigate(`/contenido/${presentation.id_presentation}`, {
-            state: { presentation },
+        navigate(`/crear-botellas/`, {
+            state: { presentation: presentation },
         });
     };
 

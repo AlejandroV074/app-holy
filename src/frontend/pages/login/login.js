@@ -59,6 +59,7 @@ class Login extends Component {
                     const respuesta = JSON.parse(result);
                     if (respuesta?.token) {
                         this.setState({ loginSuccessful: true });
+                        localStorage.setItem('token_jwt_holylabel', respuesta?.token);
                         console.log("Usuario valido");
                     } else {
                         toast.error("Usuario inválido");

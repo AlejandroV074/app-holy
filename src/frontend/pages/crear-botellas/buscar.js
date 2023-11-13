@@ -6,12 +6,8 @@ import Presentation from '../../components/crear-botellas/constants';
 
 function Buscar() {
     useEffect(() => {
-        notify();
-    }, []);
-
-    const notify = () => {
         toast.success('¡Login exitoso!');
-    };
+    }, []);
 
     return (
         <div className="App">

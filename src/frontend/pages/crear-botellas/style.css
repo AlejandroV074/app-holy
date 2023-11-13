@@ -68,3 +68,17 @@
     padding: 12px;
     font-weight: 700;
 }
+
+.label_codigo {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.btn_descargar_img {
+    background-color: #D4AF37;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 13px;
+    width: fit-content;
+    align-self: center;
+}

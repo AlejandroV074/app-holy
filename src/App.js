@@ -5,6 +5,7 @@ import Home from './frontend/pages/home/home';
 import Login from './frontend/pages/login/login';
 import Buscar from './frontend/pages/crear-botellas/buscar'
 import Crear from './frontend/pages/crear-botellas/crear-botella'
+import Traza from './frontend/pages/scan-qr/traza-qr';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/crear-botellas" element={<Crear />} />
+          <Route path="/trazabilidad" element={<Traza />} />
         </Routes>
       </Router>
     </div>
