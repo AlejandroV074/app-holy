@@ -48,7 +48,7 @@ function Navbar() {
                 <li><Link to="/" onClick={() => { scroll.scrollTo(1000); }}> ¿Quiénes somos?</Link></li>
                 <li><Link to="/" onClick={() => { scroll.scrollTo(2000); }}> FAQ </Link></li>
                 <li><Link to="/login">Login</Link></li>
-                <li><Link to="/" className="scan-qr">Escanear QR</Link></li>
+                <li><Link to="/scan-qr" className="scan-qr">Escanear QR</Link></li>
             </ul>
         </nav>
     );
