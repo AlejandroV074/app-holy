@@ -1,0 +1,149 @@
+nav {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    z-index: 100;
+    right: 0%;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6278886554621849) 41%, rgba(255,255,255,0) 100%);
+}
+
+ul {
+    list-style: none;
+    height: 100px;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+li {
+    margin: 0;
+}
+
+a {
+    color: #D4AF37;
+    text-decoration: none;
+    padding: 20px 20px;
+    transition: background-color 0.3s;
+}
+
+.special-item a {
+    color: #D4AF37;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: -0.32px;
+}
+
+.scan-qr {
+    width: 125px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #D4AF37;
+    box-shadow: 0px 4px 4px 0px rgba(233, 215, 88, 0.18);
+    color: black;
+    font-weight: 700;
+}
+
+.scan-qr:hover {
+    background-color: #fcc100;
+}
+
+.logo-label-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    position: relative;
+    width: 99px;
+    height: auto;
+    margin-right: 6px;
+    margin-top: 3px;
+}
+
+@media (max-width: 1080px) {
+    nav {
+        background-color: #333; 
+    }
+
+    ul {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #333; 
+        z-index: 100;
+        text-align: center;
+    }
+
+    ul.active {
+        display: flex;
+    }
+
+    li {
+        margin: 20px 0;
+    }
+
+    a {
+        padding: 10px 10px;
+        color: white; 
+    }
+
+    .special-item a {
+        font-size: 24px;
+        margin-left: -8%;
+        margin-bottom: -10%;
+    }
+
+    .scan-qr {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-btn {
+        display: block;
+        position: fixed;
+        top: 2%;
+        right: 1%;
+        z-index: 101;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.808);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .menu.active {
+        display: flex;
+        margin-top: 0%;
+    }
+
+    .menu-btn.active .bar {
+        background-color: #D4AF37;
+    }
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color:  #D4AF37;
+        margin: 4px 30px; 
+        transition: 0.4s;
+    }
+}

@@ -1,0 +1,67 @@
+.map-container {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.main-traceability {
+    width: 100%;
+}
+
+.traceability-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.traceability-item {
+    height: 3.5rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    background: #ffffff;
+    box-shadow: 1px 5px 4px 0px #d4af37;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 2%;
+    width: 700px;
+    margin-bottom: 20px;
+
+    display: flex;
+}
+
+.traceability-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.icon-point {
+    background-size: cover;
+    width: 56px;
+    height: 56px;
+    margin-right: 20px;
+}
+
+.Add-icon {
+    background-image: url('../../../../public/images/Add.svg');
+}
+
+.Consumer-icon {
+    background-image: url('../../../../public/images/Consumer.svg');
+}
+
+.Decanter-icon {
+    background-image: url('../../../../public/images/Decanter.svg');
+}
+
+.Distributor-icon {
+    background-image: url('../../../../public/images/Distribuidor.svg');
+}
+
+.Factory-icon {
+    background-image: url('../../../../public/images/Factory.svg');
+}

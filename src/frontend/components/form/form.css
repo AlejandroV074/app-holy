@@ -1,0 +1,114 @@
+.svg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.titulo {
+    position: absolute;
+    top: 120px;
+    left: 540px;
+    color: #D4AF37;
+    font-family: 'Montserrat';
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.44px;
+}
+
+.fonttext {
+    position: absolute;
+    fill: #ffffff;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.44px;
+    top: 50%;
+    left: 500px;
+    width: 650px;
+    transform: translateY(-50%);
+}
+
+.father {
+    position: relative;
+}
+
+.imagen-form {
+    max-width: 100%;
+    filter: drop-shadow(40px 5px 10px rgba(0, 0, 0, 0.3));
+    position: absolute;
+    top: 18%;
+    left: 4%;
+    width: 497px;
+    height: 529px;
+}
+
+@media (max-width: 1080px) {
+
+    .svg {
+        width: 108%;
+        height: 600px;
+        margin: -10%;
+    }
+
+    .fonttext {
+        width: 108%;
+        font-size: 4rem;
+    }
+
+    .fonttext {
+        font-size: 1.3rem;
+        left: 34%;
+        width: 57%;
+    }
+
+    .titulo {
+        width: 111%;
+        font-size: 3rem;
+        top: 3%;
+        left: 3%;
+    }
+
+    .imagen-form {
+        max-width: 100%;
+        width: 35%;
+        height: 101%;
+    }
+}
+
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 1.4rem;
+        top: 4%;
+        width: 92%;
+        left: 15%;
+    }
+
+    .svg {
+        width: 108%;
+        height: 362px;
+        margin: -10%;
+        left: 3%;
+        margin-bottom: 20%;
+    }
+
+    .fonttext {
+        font-size: 0.7rem;
+        left: 37%;
+        width: 58%;
+        top: 40%;
+    }
+
+    .imagen-form {
+        width: 44%;
+        max-height: 58%;
+        filter: drop-shadow(40px 5px 10px rgba(0, 0, 0, 0.3));
+        position: absolute;
+        top: 8%;
+        left: -4%;
+    }
+
+}
