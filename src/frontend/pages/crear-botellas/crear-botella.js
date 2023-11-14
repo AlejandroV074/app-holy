@@ -223,7 +223,7 @@ function Crear() {
                     <form onSubmit={handleSubmit}>
                         <label>
                             <input
-                                style={{ marginTop: "-2%", height: "60px" }}
+                                style={{ marginTop: "1%", height: "60px" }}
                                 className="buscar-pres"
                                 placeholder="Nombre"
                                 type="text"
@@ -234,8 +234,8 @@ function Crear() {
                         </label>
                         <label>
                             <select
-                                style={{ marginTop: "5%", height: "80px", width: "28%" }}
-                                className="buscar-pres"
+                                style={{ marginTop: "7.5%", height: "80px"}}
+                                className="buscar"
                                 value={marcaSeleccionada}
                                 onChange={(e) => setMarcaSeleccionada(e.target.value)}
                                 disabled={presentacionCargada}
