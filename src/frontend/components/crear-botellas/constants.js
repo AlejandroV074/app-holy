@@ -56,11 +56,9 @@ function Presentation() {
                     {searchResults.length === 0 && searchTerm.length > 0 && (
                         <div style={{ textAlign: 'center', color: 'black', marginTop: '20%' }}>No existen resultados</div>
                     )}
-                    <ul>
-                        <li>
-                            <Link to="/crear-botellas">Crear nueva presentación</Link>
-                        </li>
-                    </ul>
+                    <li>
+                        <Link className="small-screen-li" style={{display: 'flex'}} to="/crear-botellas">Crear nueva presentación</Link>
+                    </li>
                 </div>
             )}
         </div>
