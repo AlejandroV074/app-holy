@@ -45,7 +45,7 @@ function Presentation() {
                 onChange={handleInputChange}
             />
             {searchTerm.length > 0 && (
-                <div className="search-results" style={{ borderRadius: '10px', padding: '65px', backgroundColor: 'white', boxShadow: '1px 5px 4px 0px #d4af37', height: '230px' }}>
+                <div className="search-results" style={{ borderRadius: '10px', padding: '50px', backgroundColor: 'white', boxShadow: '1px 5px 4px 0px #d4af37', maxHeight: '530px', overflowY: 'auto' }}>
                     {searchResults.map((result) => (
                         <div key={result.id_presentation} style={{ marginBottom: '2%', marginTop: '5%' }}>
                             <div style={{ color: 'black', cursor: 'pointer' }} onClick={() => handleResultClick(result)}>
@@ -56,11 +56,9 @@ function Presentation() {
                     {searchResults.length === 0 && searchTerm.length > 0 && (
                         <div style={{ textAlign: 'center', color: 'black', marginTop: '20%' }}>No existen resultados</div>
                     )}
-                    <ul>
-                        <li>
-                            <Link to="/crear-botellas">Crear nueva presentación</Link>
-                        </li>
-                    </ul>
+                    <li>
+                        <Link className="small-screen-li" style={{display: 'flex'}} to="/crear-botellas">Crear nueva presentación</Link>
+                    </li>
                 </div>
             )}
         </div>

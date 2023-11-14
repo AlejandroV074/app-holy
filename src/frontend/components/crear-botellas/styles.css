@@ -1,12 +1,14 @@
 .buscar-pres {
-    width: 30rem;
+    width: 90%;
+    max-width: 30rem; 
     height: 3.5rem;
     padding: 0.5rem;
     border-radius: 2rem;
     background: #ffffff;
     position: absolute;
     top: 50%;
-    left: 43rem;
+    left: 50%;
+    transform: translate(-50%, -50%); 
     box-shadow: 1px 5px 4px 0px #d4af37;
     color: #000000;
     font-size: 20px;
@@ -23,6 +25,26 @@
 }
 
 .search-results {
-    margin-top: -110%;
+    margin-top: -115%; 
     text-align: left;
+}
+
+@media (max-width: 600px) {
+    .buscar-pres {
+        width: 80%; 
+        max-width: none; 
+        font-size: 16px; 
+    }
+
+    .search-results {
+        max-height: 200px; 
+        overflow-y: auto; 
+        margin-top: -165%;
+    }
+
+    .search-results .small-screen-li {
+        display: block;
+        margin-bottom: 10px;
+        color: #d4af37;
+    }
 }

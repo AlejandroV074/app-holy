@@ -48,7 +48,7 @@
     -webkit-appearance: none;
 }
 
-.volumen input::placeholder{
+.volumen input::placeholder {
     color: #000000;
 }
 
@@ -75,10 +75,43 @@
 }
 
 .btn_descargar_img {
-    background-color: #D4AF37;
+    background-color: #d4af37;
     color: #000000;
     font-weight: bold;
     border-radius: 13px;
     width: fit-content;
     align-self: center;
+}
+
+.buscar {
+    padding: 0.5rem;
+    border-radius: 2rem;
+    background: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25.2%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 5px 4px 0px #d4af37;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 2%;
+}
+
+@media (max-width: 600px) {
+    .buscar-pres {
+        width: 80%;
+    }
+
+    .container {
+        width: 20rem;
+        left: 2rem;
+    }
+
+    .buscar {
+        width: 82.2%;
+        top: 60%;
+        left: 50%;
+    }
 }
