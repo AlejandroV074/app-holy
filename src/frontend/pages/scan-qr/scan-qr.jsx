@@ -1,4 +1,3 @@
-
 import Navbar from '../../components/navbar/navbar';
 import Forma from '../../components/form/form';
 import Footer from '../../components/footer/footer';

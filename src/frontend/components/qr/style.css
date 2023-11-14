@@ -1,0 +1,64 @@
+.visible-class {
+    width: 382px;
+}
+
+#reader {
+    border: 6px solid #ffffff !important;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 382px;
+    height: 364px;
+}
+
+#reader.hidden {
+    display: none;
+}
+
+#reader__scan_region {
+    width: 312px !important;
+    height: 234px !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#reader__scan_region br {
+    display: none;
+}
+
+#html5-qrcode-button-camera-start {
+    padding: 20px;
+    border-radius: 12px;
+    background: #d4af37;
+    box-shadow: 0px 4px 4px 0px rgba(233, 215, 88, 0.18);
+    border: none;
+    font-size: 18px;
+    color: black;
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+}
+
+#html5-qrcode-button-camera-stop {
+    padding: 20px;
+    border-radius: 12px;
+    background: #d4af37;
+    box-shadow: 0px 4px 4px 0px rgba(233, 215, 88, 0.18);
+    border: none;
+    font-size: 18px;
+    color: black;
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+}
+
+#html5-qrcode-anchor-scan-type-change {
+    margin: 20px 0px;
+}
