@@ -149,7 +149,7 @@ function Traza() {
                             alignItems: 'start'
                         }}
                     >
-                        <div
+                        <div className='title_traza'
                             style={{
                                 color: "#D4AF37",
                                 fontSize: "5rem",
@@ -157,6 +157,15 @@ function Traza() {
                                 width: "50%"
                             }}
                         >
+                            <style>
+                            {`
+                            @media only screen and (max-width: 768px) {
+                            .title_traza {
+                                margin: 5%;
+                                    }
+                                }
+                            `}
+                            </style>
                             Trazabilidad
                         </div>
                     </div>
