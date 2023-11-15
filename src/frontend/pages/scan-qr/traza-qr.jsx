@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import Navbar from "../../components/navbar/navbar";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import TraceabilityItem from "./traceability-item";
-import "./style.css";
-import Loader from "../../components/loader/loading";
-import { toast } from "react-toastify";
+import   { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
+import Navbar from '../../components/navbar/navbar';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import TraceabilityItem from './traceability-item';
+import './style.css';
+import Loader from '../../components/loader/loading';
+import { toast } from 'react-toastify';
 
 function Traza() {
     const location = useLocation();
@@ -27,20 +27,18 @@ function Traza() {
     });
 
     useEffect(() => {
-        setCode(queryParams.get("code"));
-    }, [queryParams]);
+        setCode(queryParams.get('code'))
+    }, [queryParams])
 
     useEffect(() => {
         if (code) {
-            fetch(
-                `https://holylabelapi.azurewebsites.net/trazabilidadBotella/?code=${code}&format=json`
-            )
+            fetch(`https://holylabelapi.azurewebsites.net/trazabilidadBotella/?code=${code}&format=json`)
                 .then((response) => response.json())
                 .then((data) => {
                     setTraceability(data?.traceability);
 
                     const point = data.traceability.sort(compararFechas)[0];
-                    setCenter([point?.latitude, point?.length]);
+                    setCenter([point?.latitude, point?.length])
 
                     setLoading(false);
                 })
@@ -48,14 +46,15 @@ function Traza() {
                     console.error("Error al obtener la trazabilidad:", error)
                 );
         }
-    }, [code, refresh]);
+
+    }, [code, refresh])
 
     const compararFechas = (a, b) => {
         const fechaA = new Date(a.traceability_date);
         const fechaB = new Date(b.traceability_date);
 
         return fechaA - fechaB;
-    };
+    }
 
     const addTraceabiliy = () => {
         if ("geolocation" in navigator) {
@@ -63,14 +62,13 @@ function Traza() {
                 (position) => {
                     const geolocation = [
                         position.coords.latitude,
-                        position.coords.longitude,
-                    ];
+                        position.coords.longitude
+                    ]
 
                     const myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
-                    if (localStorage.getItem("token_jwt_holylabel")) {
-                        myHeaders.append(
-                            "Authorization",
+                    if( localStorage.getItem("token_jwt_holylabel") ) {
+                        myHeaders.append("Authorization", 
                             localStorage.getItem("token_jwt_holylabel")
                         );
                     }
@@ -79,51 +77,50 @@ function Traza() {
 
                     // Obtiene el año, mes y día
                     const año = fechaHoy.getFullYear();
-                    const mes = (fechaHoy.getMonth() + 1).toString().padStart(2, "0"); // Se suma 1 al mes porque en JavaScript los meses van de 0 a 11
-                    const dia = fechaHoy.getDate().toString().padStart(2, "0");
+                    const mes = (fechaHoy.getMonth() + 1).toString().padStart(2, '0'); // Se suma 1 al mes porque en JavaScript los meses van de 0 a 11
+                    const dia = fechaHoy.getDate().toString().padStart(2, '0');
 
                     // Formatea la fecha como un string con el formato deseado
                     const fechaFormateada = `${año}-${mes}-${dia}`;
 
                     const raw = JSON.stringify({
-                        code: code,
-                        latitude: geolocation[0] + "",
-                        length: geolocation[1] + "",
-                        traceability_date: fechaFormateada,
+                        "code": code,
+                        "latitude": geolocation[0] + "",
+                        "length": geolocation[1] + "",
+                        "traceability_date": fechaFormateada
                     });
 
                     const requestOptions = {
-                        method: "POST",
+                        method: 'POST',
                         headers: myHeaders,
                         body: raw,
-                        redirect: "follow",
+                        redirect: 'follow'
                     };
 
-                    fetch(
-                        "https://holylabelapi.azurewebsites.net/trazabilidad/",
-                        requestOptions
-                    )
-                        .then((response) => response.text())
-                        .then((result) => {
-                            console.log(result);
-                            setLoading(true);
-                            setRefresh((prev) => !prev);
+                    fetch("https://holylabelapi.azurewebsites.net/trazabilidad/", requestOptions)
+                        .then(response => response.text())
+                        .then(result => {
+                            console.log(result)
+                            setLoading(true)
+                            setRefresh(prev => !prev)
                         })
-                        .catch((error) => {
+                        .catch(error => {
                             toast.error(
                                 "Error al guardar. Verifica los datos e intenta nuevamente."
                             );
-                            console.log("error", error);
-                        });
+                            console.log('error', error)}
+                        );
                 },
                 () => {
                     toast.error("Error al obtener la ubicación");
                 }
             );
+
+
         } else {
             toast.error("Geolocalización no es compatible en este navegador");
         }
-    };
+    }
 
     const ComponentUpdater = () => {
         const map = useMap();
@@ -148,62 +145,48 @@ function Traza() {
                         style={{
                             marginTop: "150px",
                             width: "100vw",
-                            display: "flex",
-                            alignItems: "start",
+                            display: 'flex',
+                            alignItems: 'start'
                         }}
                     >
                         <div
-                            className="title_traza"
                             style={{
                                 color: "#D4AF37",
-                                fontSize: "4rem",
+                                fontSize: "5rem",
                                 fontWeight: "800",
-                                width: "50%",
+                                width: "50%"
                             }}
                         >
-                            <style>
-                                {`
-                            @media only screen and (max-width: 768px) {
-                            .title_traza {
-                                margin: 5%;
-                                    }
-                                }
-                            `}
-                            </style>
                             Trazabilidad
                         </div>
                     </div>
                 </header>
-                <main className="main-traceability">
-                    <MapContainer center={center} zoom={13} className="map-container">
+                <main className='main-traceability'>
+                    <MapContainer
+                        center={center}
+                        zoom={13}
+                        className='map-container'
+                    >
                         <TileLayer
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         />
-                        {traceability?.map((point) => (
-                            <Marker
-                                key={point.id_traceability}
-                                position={[point?.latitude, point?.length]}
-                                icon={icon}
-                            >
+                        {traceability?.map((point) =>
+                            <Marker key={point.id_traceability} position={[point?.latitude, point?.length]} icon={icon}>
                                 <Popup>
                                     {point?.name} <br /> {point?.traceability_date}
                                 </Popup>
                             </Marker>
-                        ))}
+                        )}
                         <ComponentUpdater />
                     </MapContainer>
-                    <div className="traceability-container">
-                        {traceability?.sort(compararFechas)?.map((point) => (
-                            <TraceabilityItem
-                                key={point.id_traceability}
-                                point={point}
-                                onClick={() => setCenter([point?.latitude, point?.length])}
-                            />
-                        ))}
-                        <div className="traceability-item" onClick={addTraceabiliy}>
+                    <div className='traceability-container'>
+                        {traceability?.sort(compararFechas)?.map((point) =>
+                            <TraceabilityItem  key={point.id_traceability} point={point} onClick={() => setCenter([point?.latitude, point?.length])} />
+                        )}
+                        <div className='traceability-item' onClick={addTraceabiliy}>
                             <span className={`Add-icon icon-point`}></span>
-                            <div className="traceability-text">
+                            <div className='traceability-text' >
                                 <span> Agregar trazabilidad </span>
                             </div>
                         </div>
